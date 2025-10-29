@@ -277,10 +277,77 @@
 		}
 	}
 
-        .calc-grid {
+		.calc-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 40px;
+        }
+
+        /* CSS para banners AADS responsive */
+        .aads-banner-container {
+            margin: 40px auto;
+            max-width: 970px;
+            text-align: center;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .aads-banner-container #frame {
+            max-width: 100%;
+        }
+
+        .aads-banner-container iframe {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .banner-2-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 24px;
+            padding: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(45, 212, 191, 0.2);
+            min-height: 300px;
+        }
+
+        @media (max-width: 768px) {
+            .aads-banner-container {
+                padding: 15px;
+                margin: 30px auto;
+            }
+            
+            .aads-banner-container #frame {
+                width: 100% !important;
+                max-width: 728px;
+            }
+            
+            .aads-banner-container iframe {
+                width: 100% !important;
+                max-width: 728px;
+            }
+
+            .banner-2-container {
+                min-height: auto;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .aads-banner-container #frame {
+                width: 100% !important;
+                max-width: 320px;
+            }
+            
+            .aads-banner-container iframe {
+                width: 100% !important;
+                max-width: 320px;
+                height: auto !important;
+            }
         }
 
         .calc-card {
@@ -423,57 +490,7 @@
             0%, 90%, 100% { left: -100%; }
             50% { left: 100%; }
         }
-
-        .sidebar-ads {
-			width: 100%;
-			max-width: 1200px;
-			margin: 40px auto;
-			display: flex !important;
-			justify-content: center;
-			gap: 30px;
-			flex-wrap: wrap;
-			z-index: 1000;
-			opacity: 1;
-			visibility: visible;
-		}
-
-        .ad-sidebar {
-			background: var(--glass);
-			backdrop-filter: blur(15px);
-			border: 2px solid rgba(45, 212, 191, 0.3);
-			border-radius: 20px;
-			padding: 25px 15px;
-			text-align: center;
-			margin-bottom: 0;
-			color: #2dd4bf;
-			font-size: 16px;
-			font-weight: 600;
-			box-shadow: var(--shadow);
-			transition: all 0.3s ease;
-			flex: 1;
-			min-width: 200px;
-			max-width: 300px;
-			height: 150px;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			opacity: 1;
-			visibility: visible;
-		}
-
-		@media (min-width: 769px) {
-			.ad-sidebar {
-			opacity: 1;
-			visibility: visible;
-			display: flex;
-		}
-	}
-
-        .ad-sidebar:hover {
-            transform: scale(1.02);
-            border-color: rgba(45, 212, 191, 0.5);
-        }
-
+        
         .info-section {
             background: var(--glass);
             backdrop-filter: blur(20px);
@@ -662,6 +679,14 @@
             <h2 style="font-size: 2rem; color: #ffffff; margin-bottom: 16px; font-weight: 700; letter-spacing: -0.02em;">How to Calculate Percent Faster - Quick Tips</h2>
             <p style="font-size: 1.15rem; color: #e0f2f1; line-height: 1.7; font-weight: 400;">Learn mental math shortcuts: 50% = half, 25% = quarter, 10% = move decimal left once. Master percentage calculations for everyday use.</p>
         </section>
+        
+        <!-- Banner 1 - AADS Horizontal -->
+        <div class="aads-banner-container">
+            <div id="frame" style="width: 728px;margin: auto;z-index: 99998;height: auto">
+                <iframe data-aa='2415317' src='//ad.a-ads.com/2415317/?size=728x90'
+                    style='border:0; padding:0; width:728px; height:90px; overflow:hidden;display: block;margin: auto'></iframe>
+            </div>
+        </div>
         
         <section class="calculator-section">
             <h2 class="section-title">Free Online Percentage Calculators</h2>
@@ -873,21 +898,17 @@
                     </div>
                     <div class="result" id="result11">Enter values above</div>
                 </div>
+
+                <!-- Banner 2 - AADS Medium Rectangle -->
+                <div class="banner-2-container">
+                    <div id="frame" style="width: 300px;margin: auto;z-index: 99998;height: auto">
+                        <iframe data-aa='2415316' src='//ad.a-ads.com/2415316/?size=300x250'
+                            style='border:0; padding:0; width:300px; height:250px; overflow:hidden;display: block;margin: auto'></iframe>
+                    </div>
+                </div>
             </div>
         </section>
-
-        <div class="sidebar-ads">
-            <div class="ad-sidebar">
-                <div>💎 Premium Ad<br>160x600<br>Skyscraper</div>
-            </div>
-            <div class="ad-sidebar">
-                <div>⭐ Premium Ad<br>300x250<br>Rectangle</div>
-            </div>
-            <div class="ad-sidebar">
-                <div>🎯 Premium Ad<br>320x50<br>Mobile Banner</div>
-            </div>
-        </div>
-
+		
         <section class="info-section">
             <h2>Complete Percentage Calculator Guide & Formulas</h2>
             
@@ -960,6 +981,14 @@
                 <p>With a modern, intuitive interface that works flawlessly on all devices - desktop, tablet, and mobile - RapidPercent makes percentage calculations effortless and accessible anywhere. Our calculators are trusted by students, teachers, business professionals, and financial planners worldwide. No downloads, no sign-ups, no complications - just open your browser and start calculating with confidence!</p>
             </div>
         </section>
+
+        <!-- Banner 3 - AADS Horizontal -->
+        <div class="aads-banner-container">
+            <div id="frame" style="width: 728px;margin: auto;z-index: 99998;height: auto">
+                <iframe data-aa='2415318' src='//ad.a-ads.com/2415318/?size=728x90'
+                    style='border:0; padding:0; width:728px; height:90px; overflow:hidden;display: block;margin: auto'></iframe>
+            </div>
+        </div>
 
         <section class="info-section">
             <h2>Percentage Calculator Applications & Use Cases</h2>
