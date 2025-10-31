@@ -652,6 +652,165 @@
         .calc-card:nth-child(9) { animation-delay: 0.9s; }
         .calc-card:nth-child(10) { animation-delay: 1.0s; }
         .calc-card:nth-child(11) { animation-delay: 1.1s; }
+		/* Estilos para el icono de información */
+        .info-icon {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 1.4rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            opacity: 0.7;
+            z-index: 10;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+        }
+
+        .info-icon:hover {
+            transform: scale(1.15) rotate(15deg);
+            opacity: 1;
+            filter: drop-shadow(0 4px 8px rgba(45, 212, 191, 0.4));
+        }
+
+        /* Estilos para el modal informativo */
+        .info-modal {
+            display: none;
+            position: fixed;
+            z-index: 10000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.65);
+            backdrop-filter: blur(5px);
+            animation: fadeIn 0.3s ease;
+        }
+
+        .info-modal.show {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .info-modal-content {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 50%, #fcd34d 100%);
+            padding: 35px 40px;
+            border: 3px solid #f59e0b;
+            border-radius: 24px;
+            width: 90%;
+            max-width: 600px;
+            max-height: 85vh;
+            overflow-y: auto;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+            animation: slideDown 0.4s ease;
+            position: relative;
+        }
+
+        .info-modal-content h3 {
+            background: linear-gradient(135deg, #2dd4bf 0%, #14b8a6 50%, #0d9488 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 1.9rem;
+            font-weight: 800;
+            margin-bottom: 25px;
+            text-align: center;
+            line-height: 1.3;
+        }
+
+        .info-modal-content .modal-section {
+            margin-bottom: 20px;
+        }
+
+        .info-modal-content .modal-section h4 {
+            color: #92400e;
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .info-modal-content .modal-section p {
+            color: #78350f;
+            font-size: 1.05rem;
+            line-height: 1.7;
+            margin-bottom: 12px;
+        }
+
+        .info-modal-content .example-box {
+            background: rgba(255, 255, 255, 0.6);
+            border-left: 4px solid #f59e0b;
+            padding: 15px;
+            border-radius: 12px;
+            margin-top: 12px;
+            font-size: 0.98rem;
+            color: #78350f;
+            font-weight: 500;
+        }
+
+        .modal-close-btn {
+            background: linear-gradient(135deg, #2dd4bf 0%, #14b8a6 50%, #0d9488 100%);
+            color: white;
+            border: none;
+            padding: 14px 40px;
+            border-radius: 16px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 20px rgba(45, 212, 191, 0.4);
+            display: block;
+            margin: 25px auto 0;
+            min-width: 150px;
+        }
+
+        .modal-close-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 25px rgba(45, 212, 191, 0.5);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px) scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .info-modal-content {
+                padding: 25px 20px;
+                width: 95%;
+                max-height: 90vh;
+            }
+
+            .info-modal-content h3 {
+                font-size: 1.5rem;
+            }
+
+            .info-modal-content .modal-section h4 {
+                font-size: 1.05rem;
+            }
+
+            .info-modal-content .modal-section p {
+                font-size: 0.98rem;
+            }
+
+            .info-icon {
+                font-size: 1.2rem;
+                top: 12px;
+                right: 12px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -708,6 +867,7 @@
             <div class="calc-grid">
                 <div class="calc-card" id="basic-percentage">
                     <h3>Basic Percentage Calculator</h3>
+					<span class="info-icon" onclick="openModal('modal1')" title="How to use this calculator?">💡</span>
                     <div class="input-group">
                         <label for="percent1">Percentage (%):</label>
                         <input type="number" id="percent1" placeholder="e.g., 25" step="0.01" min="0" aria-label="Enter percentage value">
@@ -723,6 +883,7 @@
 
                 <div class="calc-card" id="percentage-of-number">
                     <h3>Percentage of a Number</h3>
+					<span class="info-icon" onclick="openModal('modal2')" title="How to use this calculator?">💡</span>
                     <div class="input-group">
                         <label for="number2">Number:</label>
                         <input type="number" id="number2" placeholder="e.g., 50" step="0.01" min="0" aria-label="Enter number">
@@ -738,6 +899,7 @@
 
                 <div class="calc-card" id="percentage-increase">
                     <h3>Percentage Increase Calculator</h3>
+					<span class="info-icon" onclick="openModal('modal3')" title="How to use this calculator?">💡</span>
                     <div class="input-group">
                         <label for="original1">Original value:</label>
                         <input type="number" id="original1" placeholder="e.g., 100" step="0.01" min="0.01" aria-label="Enter original value">
@@ -753,6 +915,7 @@
 
                 <div class="calc-card" id="percentage-decrease">
                     <h3>Percentage Decrease Calculator</h3>
+					<span class="info-icon" onclick="openModal('modal4')" title="How to use this calculator?">💡</span>
                     <div class="input-group">
                         <label for="original2">Original value:</label>
                         <input type="number" id="original2" placeholder="e.g., 150" step="0.01" min="0.01" aria-label="Enter original value">
@@ -768,6 +931,7 @@
 
                 <div class="calc-card" id="discount-calculator">
                     <h3>Discount Calculator</h3>
+					<span class="info-icon" onclick="openModal('modal5')" title="How to use this calculator?">💡</span>
                     <div class="input-group">
                         <label for="price1">Original price ($):</label>
                         <input type="number" id="price1" placeholder="e.g., 100" step="0.01" min="0.01" aria-label="Enter original price">
@@ -783,6 +947,7 @@
 
                 <div class="calc-card" id="tip-calculator">
                     <h3>Tip Calculator</h3>
+					<span class="info-icon" onclick="openModal('modal6')" title="How to use this calculator?">💡</span>
                     <div class="input-group">
                         <label for="bill">Bill amount ($):</label>
                         <input type="number" id="bill" placeholder="e.g., 50" step="0.01" min="0.01" aria-label="Enter bill amount">
@@ -798,6 +963,7 @@
 				
 				<div class="calc-card" id="sales-tax-calculator">
                     <h3>Sales Tax Calculator</h3>
+					<span class="info-icon" onclick="openModal('modal7')" title="How to use this calculator?">💡</span>
                     <div class="input-group">
                         <label for="price2">Price before tax ($):</label>
                         <input type="number" id="price2" placeholder="e.g., 100" step="0.01" min="0.01" aria-label="Enter price before tax">
@@ -813,6 +979,7 @@
 
                 <div class="calc-card" id="grade-calculator">
                     <h3>Grade Percentage Calculator</h3>
+					<span class="info-icon" onclick="openModal('modal8')" title="How to use this calculator?">💡</span>
                     <div class="input-group">
                         <label for="pointsEarned">Points earned:</label>
                         <input type="number" id="pointsEarned" placeholder="e.g., 85" step="0.1" min="0" aria-label="Enter points earned">
@@ -836,6 +1003,7 @@
 
                 <div class="calc-card" id="markup-calculator">
                     <h3>Markup Calculator</h3>
+					<span class="info-icon" onclick="openModal('modal9')" title="How to use this calculator?">💡</span>
                     <div class="input-group">
                         <label for="cost">Cost price ($):</label>
                         <input type="number" id="cost" placeholder="e.g., 50" step="0.01" min="0.01" aria-label="Enter cost price">
@@ -851,6 +1019,7 @@
 
                 <div class="calc-card" id="simple-interest-calculator">
                     <h3>Simple Interest Calculator</h3>
+					<span class="info-icon" onclick="openModal('modal10')" title="How to use this calculator?">💡</span>
                     <div class="input-group">
                         <label for="principal">Principal amount ($):</label>
                         <input type="number" id="principal" placeholder="e.g., 1000" step="0.01" min="0.01" aria-label="Enter principal amount">
@@ -871,6 +1040,7 @@
 
                 <div class="calc-card" id="compound-interest-calculator">
                     <h3>Compound Interest Calculator</h3>
+					<span class="info-icon" onclick="openModal('modal11')" title="How to use this calculator?">💡</span>
                     <div class="input-group">
                         <label for="principal2">Principal amount ($):</label>
                         <input type="number" id="principal2" placeholder="e.g., 1000" step="0.01" min="0.01" aria-label="Enter principal amount">
@@ -1045,6 +1215,360 @@
             </div>
         </div>
     </section>
+
+<!-- Modales informativos para cada calculadora -->
+    
+    <!-- Modal 1: Basic Percentage -->
+    <div id="modal1" class="info-modal">
+        <div class="info-modal-content">
+            <h3>💡 Basic Percentage Calculator</h3>
+            
+            <div class="modal-section">
+                <h4>🎯 What does it do?</h4>
+                <p>Calculates what a specific percentage of any number is. This is the most basic and fundamental percentage operation.</p>
+            </div>
+
+            <div class="modal-section">
+                <h4>🔧 How to use it?</h4>
+                <p>Enter the percentage you want to calculate and the number you want that percentage of. The result appears automatically.</p>
+                <div class="example-box">
+                    <strong>Example:</strong> What is 25% of 200?<br>
+                    Result: 50
+                </div>
+            </div>
+
+            <div class="modal-section">
+                <h4>💼 When to use it?</h4>
+                <p><strong>• Shopping:</strong> Calculate store discounts<br>
+                <strong>• Tips:</strong> Determine how much to tip<br>
+                <strong>• Taxes:</strong> Calculate sales tax on products<br>
+                <strong>• Investments:</strong> Calculate commissions or returns<br>
+                <strong>• Business:</strong> Calculate sales percentages or commissions</p>
+            </div>
+
+            <button class="modal-close-btn" onclick="closeModal('modal1')">Got it ✓</button>
+        </div>
+    </div>
+
+    <!-- Modal 2: Percentage of Number -->
+    <div id="modal2" class="info-modal">
+        <div class="info-modal-content">
+            <h3>💡 Percentage of a Number</h3>
+            
+            <div class="modal-section">
+                <h4>🎯 What does it do?</h4>
+                <p>Calculates what percentage one number represents of another. This is the inverse operation of the basic calculator.</p>
+            </div>
+
+            <div class="modal-section">
+                <h4>🔧 How to use it?</h4>
+                <p>Enter the specific number and the total. It will tell you what percentage that number represents of the total.</p>
+                <div class="example-box">
+                    <strong>Example:</strong> What percentage is 50 of 200?<br>
+                    Result: 25%
+                </div>
+            </div>
+
+            <div class="modal-section">
+                <h4>💼 When to use it?</h4>
+                <p><strong>• Grades:</strong> Know your percentage on an exam<br>
+                <strong>• Progress:</strong> See what % you've completed of a goal<br>
+                <strong>• Sales:</strong> Calculate your % of quota achieved<br>
+                <strong>• Finance:</strong> See what % of your salary you spend on something<br>
+                <strong>• Analysis:</strong> Determine proportions and ratios</p>
+            </div>
+
+            <button class="modal-close-btn" onclick="closeModal('modal2')">Got it ✓</button>
+        </div>
+    </div>
+
+    <!-- Modal 3: Percentage Increase -->
+    <div id="modal3" class="info-modal">
+        <div class="info-modal-content">
+            <h3>💡 Percentage Increase Calculator</h3>
+            
+            <div class="modal-section">
+                <h4>🎯 What does it do?</h4>
+                <p>Calculates the percentage increase between an original value and a new value. Measures growth.</p>
+            </div>
+
+            <div class="modal-section">
+                <h4>🔧 How to use it?</h4>
+                <p>Enter the original value (initial) and the new value (final). It will show you the percentage increase.</p>
+                <div class="example-box">
+                    <strong>Example:</strong> From $100 to $150<br>
+                    Result: 50% increase
+                </div>
+            </div>
+
+            <div class="modal-section">
+                <h4>💼 When to use it?</h4>
+                <p><strong>• Salaries:</strong> Calculate your salary raise<br>
+                <strong>• Investments:</strong> See your investment growth<br>
+                <strong>• Sales:</strong> Measure month-over-month sales growth<br>
+                <strong>• Prices:</strong> See how much something's price increased<br>
+                <strong>• Business:</strong> Analyze business growth</p>
+            </div>
+
+            <button class="modal-close-btn" onclick="closeModal('modal3')">Got it ✓</button>
+        </div>
+    </div>
+
+    <!-- Modal 4: Percentage Decrease -->
+    <div id="modal4" class="info-modal">
+        <div class="info-modal-content">
+            <h3>💡 Percentage Decrease Calculator</h3>
+            
+            <div class="modal-section">
+                <h4>🎯 What does it do?</h4>
+                <p>Calculates the percentage decrease between an original value and a new value. Measures reduction.</p>
+            </div>
+
+            <div class="modal-section">
+                <h4>🔧 How to use it?</h4>
+                <p>Enter the original value (higher) and the new value (lower). It will tell you the percentage decrease.</p>
+                <div class="example-box">
+                    <strong>Example:</strong> From $150 to $120<br>
+                    Result: 20% decrease
+                </div>
+            </div>
+
+            <div class="modal-section">
+                <h4>💼 When to use it?</h4>
+                <p><strong>• Sales:</strong> See how much price dropped in discounts<br>
+                <strong>• Losses:</strong> Calculate investment losses<br>
+                <strong>• Diets:</strong> Measure weight reduction percentage<br>
+                <strong>• Expenses:</strong> See how much you reduced your spending<br>
+                <strong>• Sales:</strong> Analyze sales decline</p>
+            </div>
+
+            <button class="modal-close-btn" onclick="closeModal('modal4')">Got it ✓</button>
+        </div>
+    </div>
+
+    <!-- Modal 5: Discount Calculator -->
+    <div id="modal5" class="info-modal">
+        <div class="info-modal-content">
+            <h3>💡 Discount Calculator</h3>
+            
+            <div class="modal-section">
+                <h4>🎯 What does it do?</h4>
+                <p>Calculates the final price after applying a discount. Shows you how much you save and how much you pay.</p>
+            </div>
+
+            <div class="modal-section">
+                <h4>🔧 How to use it?</h4>
+                <p>Enter the original price and the discount percentage. You'll see the final price and how much you save.</p>
+                <div class="example-box">
+                    <strong>Example:</strong> $100 with 20% discount<br>
+                    Result: Pay $80, save $20
+                </div>
+            </div>
+
+            <div class="modal-section">
+                <h4>💼 When to use it?</h4>
+                <p><strong>• Shopping:</strong> Calculate prices in sales and offers<br>
+                <strong>• Black Friday:</strong> Compare real discounts<br>
+                <strong>• Online shopping:</strong> See final price with coupons<br>
+                <strong>• Business:</strong> Calculate customer discounts<br>
+                <strong>• Budgeting:</strong> Plan purchases during promotions</p>
+            </div>
+
+            <button class="modal-close-btn" onclick="closeModal('modal5')">Got it ✓</button>
+        </div>
+    </div>
+
+    <!-- Modal 6: Tip Calculator -->
+    <div id="modal6" class="info-modal">
+        <div class="info-modal-content">
+            <h3>💡 Tip Calculator</h3>
+            
+            <div class="modal-section">
+                <h4>🎯 What does it do?</h4>
+                <p>Calculates how much to tip at restaurants and shows you the total amount to pay including the tip.</p>
+            </div>
+
+            <div class="modal-section">
+                <h4>🔧 How to use it?</h4>
+                <p>Enter the bill amount and the tip percentage you want to leave. It shows you the tip and total.</p>
+                <div class="example-box">
+                    <strong>Example:</strong> $50 bill with 18% tip<br>
+                    Result: Tip $9, Total $59
+                </div>
+            </div>
+
+            <div class="modal-section">
+                <h4>💼 When to use it?</h4>
+                <p><strong>• Restaurants:</strong> Calculate tip quickly<br>
+                <strong>• Deliveries:</strong> Determine tip for delivery drivers<br>
+                <strong>• Services:</strong> Tips for waiters, bartenders<br>
+                <strong>• Travel:</strong> Calculate tips at hotels, taxis<br>
+                <strong>• Groups:</strong> Split tip among multiple people</p>
+            </div>
+
+            <button class="modal-close-btn" onclick="closeModal('modal6')">Got it ✓</button>
+        </div>
+    </div>
+
+    <!-- Modal 7: Sales Tax Calculator -->
+    <div id="modal7" class="info-modal">
+        <div class="info-modal-content">
+            <h3>💡 Sales Tax Calculator</h3>
+            
+            <div class="modal-section">
+                <h4>🎯 What does it do?</h4>
+                <p>Calculates sales tax (VAT) and shows you the total price you'll pay including tax.</p>
+            </div>
+
+            <div class="modal-section">
+                <h4>🔧 How to use it?</h4>
+                <p>Enter the price before tax and the tax rate (%). It shows you the tax amount and final total price.</p>
+                <div class="example-box">
+                    <strong>Example:</strong> $100 with 8.25% tax<br>
+                    Result: Tax $8.25, Total $108.25
+                </div>
+            </div>
+
+            <div class="modal-section">
+                <h4>💼 When to use it?</h4>
+                <p><strong>• Shopping:</strong> See real price with tax included<br>
+                <strong>• Budgeting:</strong> Calculate real total costs<br>
+                <strong>• Business:</strong> Calculate prices with taxes<br>
+                <strong>• Invoicing:</strong> Separate base price and taxes<br>
+                <strong>• Travel:</strong> Calculate prices in countries with different VAT</p>
+            </div>
+
+            <button class="modal-close-btn" onclick="closeModal('modal7')">Got it ✓</button>
+        </div>
+    </div>
+
+    <!-- Modal 8: Grade Calculator -->
+    <div id="modal8" class="info-modal">
+        <div class="info-modal-content">
+            <h3>💡 Grade Percentage Calculator</h3>
+            
+            <div class="modal-section">
+                <h4>🎯 What does it do?</h4>
+                <p>Converts points earned into a percentage and shows you your grade (A, B, C, D, F) according to the standard scale.</p>
+            </div>
+
+            <div class="modal-section">
+                <h4>🔧 How to use it?</h4>
+                <p>Enter the points you earned and the total points possible. It will tell you your percentage and letter grade.</p>
+                <div class="example-box">
+                    <strong>Example:</strong> 85 points out of 100 possible<br>
+                    Result: 85% • Grade B (Good)
+                </div>
+            </div>
+
+            <div class="modal-section">
+                <h4>💼 When to use it?</h4>
+                <p><strong>• Exams:</strong> Know your grade on tests<br>
+                <strong>• Homework:</strong> Calculate assignment grades<br>
+                <strong>• Projects:</strong> See your final grade<br>
+                <strong>• Teachers:</strong> Assign grades easily<br>
+                <strong>• Students:</strong> Monitor your academic performance</p>
+            </div>
+
+            <button class="modal-close-btn" onclick="closeModal('modal8')">Got it ✓</button>
+        </div>
+    </div>
+
+    <!-- Modal 9: Markup Calculator -->
+    <div id="modal9" class="info-modal">
+        <div class="info-modal-content">
+            <h3>💡 Markup Calculator</h3>
+            
+            <div class="modal-section">
+                <h4>🎯 What does it do?</h4>
+                <p>Calculates selling price by adding a profit margin (markup) to the cost. Shows you the final price and your profit.</p>
+            </div>
+
+            <div class="modal-section">
+                <h4>🔧 How to use it?</h4>
+                <p>Enter the product cost and the profit percentage you want. It shows you the selling price and margin.</p>
+                <div class="example-box">
+                    <strong>Example:</strong> Cost $50 with 40% markup<br>
+                    Result: Sell at $70, profit $20
+                </div>
+            </div>
+
+            <div class="modal-section">
+                <h4>💼 When to use it?</h4>
+                <p><strong>• Retail:</strong> Set selling prices in your store<br>
+                <strong>• E-commerce:</strong> Calculate prices with profit margin<br>
+                <strong>• Freelance:</strong> Determine service rates<br>
+                <strong>• Manufacturing:</strong> Calculate product prices<br>
+                <strong>• Business:</strong> Establish pricing strategy</p>
+            </div>
+
+            <button class="modal-close-btn" onclick="closeModal('modal9')">Got it ✓</button>
+        </div>
+    </div>
+
+    <!-- Modal 10: Simple Interest -->
+    <div id="modal10" class="info-modal">
+        <div class="info-modal-content">
+            <h3>💡 Simple Interest Calculator</h3>
+            
+            <div class="modal-section">
+                <h4>🎯 What does it do?</h4>
+                <p>Calculates simple interest generated by a principal amount over a period of time. Interest is calculated only on the initial principal.</p>
+            </div>
+
+            <div class="modal-section">
+                <h4>🔧 How to use it?</h4>
+                <p>Enter the initial principal, annual interest rate (%), and time in years. It shows you the interest earned and total.</p>
+                <div class="example-box">
+                    <strong>Example:</strong> $1,000 at 5% annually for 2 years<br>
+                    Result: Interest $100, Total $1,100
+                </div>
+            </div>
+
+            <div class="modal-section">
+                <h4>💼 When to use it?</h4>
+                <p><strong>• Loans:</strong> Calculate simple loan interest<br>
+                <strong>• Savings:</strong> See savings account returns<br>
+                <strong>• Short investments:</strong> Calculate simple gains<br>
+                <strong>• Bonds:</strong> Calculate bond interest<br>
+                <strong>• Planning:</strong> Estimate future returns</p>
+            </div>
+
+            <button class="modal-close-btn" onclick="closeModal('modal10')">Got it ✓</button>
+        </div>
+    </div>
+
+    <!-- Modal 11: Compound Interest -->
+    <div id="modal11" class="info-modal">
+        <div class="info-modal-content">
+            <h3>💡 Compound Interest Calculator</h3>
+            
+            <div class="modal-section">
+                <h4>🎯 What does it do?</h4>
+                <p>Calculates compound interest, where interest generates more interest. It's more powerful than simple interest.</p>
+            </div>
+
+            <div class="modal-section">
+                <h4>🔧 How to use it?</h4>
+                <p>Enter the principal, annual interest rate, compounding frequency (annual, monthly, daily), and time. It shows you the final amount.</p>
+                <div class="example-box">
+                    <strong>Example:</strong> $1,000 at 5% for 5 years (monthly)<br>
+                    Result: Total $1,283.36, Interest $283.36
+                </div>
+            </div>
+
+            <div class="modal-section">
+                <h4>💼 When to use it?</h4>
+                <p><strong>• Investments:</strong> Calculate long-term growth<br>
+                <strong>• Retirement:</strong> Plan retirement savings<br>
+                <strong>• Funds:</strong> See investment fund returns<br>
+                <strong>• Mortgages:</strong> Calculate total loan cost<br>
+                <strong>• Education:</strong> Plan educational funds</p>
+            </div>
+
+            <button class="modal-close-btn" onclick="closeModal('modal11')">Got it ✓</button>
+        </div>
+    </div>
 
     <footer class="footer">
         <div class="container">
@@ -1470,6 +1994,41 @@ function copyToClipboardFallback(text, button) {
     
     document.body.removeChild(textArea);
 	}
+	// Funciones para los modales informativos
+        function openModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.classList.add('show');
+                document.body.style.overflow = 'hidden'; // Prevenir scroll del body
+            }
+        }
+
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.classList.remove('show');
+                document.body.style.overflow = ''; // Restaurar scroll del body
+            }
+        }
+
+        // Cerrar modal al hacer click fuera del contenido
+        window.addEventListener('click', function(event) {
+            if (event.target.classList.contains('info-modal')) {
+                event.target.classList.remove('show');
+                document.body.style.overflow = '';
+            }
+        });
+
+        // Cerrar modal con tecla Escape
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                const modals = document.querySelectorAll('.info-modal.show');
+                modals.forEach(modal => {
+                    modal.classList.remove('show');
+                    document.body.style.overflow = '';
+                });
+            }
+        });
     </script>
 </body>
 </html>
