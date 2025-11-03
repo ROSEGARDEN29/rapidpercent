@@ -486,6 +486,34 @@
             margin-bottom: 4px;
         }
 
+        .clear-btn {
+			position: absolute;
+			top: 17px;
+			left: 12px;
+			background: #dc2626;
+			color: white;
+			border: none;
+			padding: 4px 9px;
+			border-radius: 6px;
+			font-size: 1rem;
+			font-weight: 900;
+			cursor: pointer;
+			transition: all 0.3s ease;
+			z-index: 5;
+			box-shadow: 0 2px 4px rgba(220, 38, 38, 0.3);
+			line-height: 1;
+		}
+
+		.clear-btn:hover {
+			background: #b91c1c;
+			transform: scale(1.05);
+		box-shadow: 0 4px 8px rgba(220, 38, 38, 0.4);
+		}
+
+        .clear-btn:active {
+            transform: scale(0.95);
+        }
+
         @keyframes resultShimmer {
             0%, 90%, 100% { left: -100%; }
             50% { left: 100%; }
@@ -866,6 +894,7 @@
             
             <div class="calc-grid">
                 <div class="calc-card" id="basic-percentage">
+                    <button class="clear-btn" onclick="clearCalculator('basic-percentage')" title="Clear all fields">✕</button>
                     <h3>Basic Percentage Calculator</h3>
 					<span class="info-icon" onclick="openModal('modal1')" title="How to use this calculator?">💡</span>
                     <div class="input-group">
@@ -882,6 +911,7 @@
                 </div>
 
                 <div class="calc-card" id="percentage-of-number">
+                    <button class="clear-btn" onclick="clearCalculator('percentage-of-number')" title="Clear all fields">✕</button>
                     <h3>Percentage of a Number</h3>
 					<span class="info-icon" onclick="openModal('modal2')" title="How to use this calculator?">💡</span>
                     <div class="input-group">
@@ -898,6 +928,7 @@
                 </div>
 
                 <div class="calc-card" id="percentage-increase">
+                    <button class="clear-btn" onclick="clearCalculator('percentage-increase')" title="Clear all fields">✕</button>
                     <h3>Percentage Increase Calculator</h3>
 					<span class="info-icon" onclick="openModal('modal3')" title="How to use this calculator?">💡</span>
                     <div class="input-group">
@@ -914,6 +945,7 @@
                 </div>
 
                 <div class="calc-card" id="percentage-decrease">
+                    <button class="clear-btn" onclick="clearCalculator('percentage-decrease')" title="Clear all fields">✕</button>
                     <h3>Percentage Decrease Calculator</h3>
 					<span class="info-icon" onclick="openModal('modal4')" title="How to use this calculator?">💡</span>
                     <div class="input-group">
@@ -930,6 +962,7 @@
                 </div>
 
                 <div class="calc-card" id="discount-calculator">
+                    <button class="clear-btn" onclick="clearCalculator('discount-calculator')" title="Clear all fields">✕</button>
                     <h3>Discount Calculator</h3>
 					<span class="info-icon" onclick="openModal('modal5')" title="How to use this calculator?">💡</span>
                     <div class="input-group">
@@ -946,6 +979,7 @@
                 </div>
 
                 <div class="calc-card" id="tip-calculator">
+                    <button class="clear-btn" onclick="clearCalculator('tip-calculator')" title="Clear all fields">✕</button>
                     <h3>Tip Calculator</h3>
 					<span class="info-icon" onclick="openModal('modal6')" title="How to use this calculator?">💡</span>
                     <div class="input-group">
@@ -958,10 +992,16 @@
                         <input type="number" id="tip" placeholder="e.g., 18" step="0.01" min="0" max="100" aria-label="Enter tip percentage">
                         <div class="error-message" id="error6b">Tip percentage must be between 0% and 100%</div>
                     </div>
+                    <div class="input-group">
+                        <label for="splitPeople">Split between (people):</label>
+                        <input type="number" id="splitPeople" placeholder="e.g., 4" step="1" min="1" max="100" value="1" aria-label="Number of people">
+                        <div class="error-message" id="error6c">Number of people must be between 1 and 100</div>
+                    </div>
                     <div class="result" id="result6">Enter values above</div>
                 </div>
 				
 				<div class="calc-card" id="sales-tax-calculator">
+                    <button class="clear-btn" onclick="clearCalculator('sales-tax-calculator')" title="Clear all fields">✕</button>
                     <h3>Sales Tax Calculator</h3>
 					<span class="info-icon" onclick="openModal('modal7')" title="How to use this calculator?">💡</span>
                     <div class="input-group">
@@ -978,6 +1018,7 @@
                 </div>
 
                 <div class="calc-card" id="grade-calculator">
+                    <button class="clear-btn" onclick="clearCalculator('grade-calculator')" title="Clear all fields">✕</button>
                     <h3>Grade Percentage Calculator</h3>
 					<span class="info-icon" onclick="openModal('modal8')" title="How to use this calculator?">💡</span>
                     <div class="input-group">
@@ -1002,6 +1043,7 @@
                 </div>
 
                 <div class="calc-card" id="markup-calculator">
+                    <button class="clear-btn" onclick="clearCalculator('markup-calculator')" title="Clear all fields">✕</button>
                     <h3>Markup Calculator</h3>
 					<span class="info-icon" onclick="openModal('modal9')" title="How to use this calculator?">💡</span>
                     <div class="input-group">
@@ -1018,6 +1060,7 @@
                 </div>
 
                 <div class="calc-card" id="simple-interest-calculator">
+                    <button class="clear-btn" onclick="clearCalculator('simple-interest-calculator')" title="Clear all fields">✕</button>
                     <h3>Simple Interest Calculator</h3>
 					<span class="info-icon" onclick="openModal('modal10')" title="How to use this calculator?">💡</span>
                     <div class="input-group">
@@ -1039,6 +1082,7 @@
                 </div>
 
                 <div class="calc-card" id="compound-interest-calculator">
+                    <button class="clear-btn" onclick="clearCalculator('compound-interest-calculator')" title="Clear all fields">✕</button>
                     <h3>Compound Interest Calculator</h3>
 					<span class="info-icon" onclick="openModal('modal11')" title="How to use this calculator?">💡</span>
                     <div class="input-group">
@@ -1385,25 +1429,25 @@
             
             <div class="modal-section">
                 <h4>🎯 What does it do?</h4>
-                <p>Calculates how much to tip at restaurants and shows you the total amount to pay including the tip.</p>
+                <p>Calculates how much to tip at restaurants and shows you the total amount to pay including the tip. Now with split bill feature!</p>
             </div>
 
             <div class="modal-section">
                 <h4>🔧 How to use it?</h4>
-                <p>Enter the bill amount and the tip percentage you want to leave. It shows you the tip and total.</p>
+                <p>Enter the bill amount, tip percentage, and number of people to split. It shows you the tip, total, and amount per person.</p>
                 <div class="example-box">
-                    <strong>Example:</strong> $50 bill with 18% tip<br>
-                    Result: Tip $9, Total $59
+                    <strong>Example:</strong> $50 bill, 18% tip, split between 4 people<br>
+                    Result: Total $59, Tip $9, Each pays $14.75
                 </div>
             </div>
 
             <div class="modal-section">
                 <h4>💼 When to use it?</h4>
-                <p><strong>• Restaurants:</strong> Calculate tip quickly<br>
+                <p><strong>• Restaurants:</strong> Calculate tip quickly and split among friends<br>
                 <strong>• Deliveries:</strong> Determine tip for delivery drivers<br>
                 <strong>• Services:</strong> Tips for waiters, bartenders<br>
                 <strong>• Travel:</strong> Calculate tips at hotels, taxis<br>
-                <strong>• Groups:</strong> Split tip among multiple people</p>
+                <strong>• Groups:</strong> Easily divide the bill among multiple people</p>
             </div>
 
             <button class="modal-close-btn" onclick="closeModal('modal6')">Got it ✓</button>
@@ -1766,6 +1810,37 @@
             });
         }
 
+        // Función para limpiar calculadoras
+        function clearCalculator(calcId) {
+            const card = document.getElementById(calcId);
+            if (!card) return;
+            
+            // Limpiar todos los inputs
+            const inputs = card.querySelectorAll('input[type="number"]');
+            inputs.forEach(input => {
+                input.value = '';
+                input.classList.remove('error');
+            });
+            
+            // Limpiar mensajes de error
+            const errors = card.querySelectorAll('.error-message');
+            errors.forEach(error => {
+                error.style.display = 'none';
+            });
+            
+            // Reset result
+            const result = card.querySelector('.result');
+            if (result) {
+                result.textContent = 'Enter values above';
+            }
+            
+            // Hacer focus en el primer input
+            const firstInput = card.querySelector('input[type="number"]');
+            if (firstInput) {
+                firstInput.focus();
+            }
+        }
+
         // Calculator 1: What is X% of Y?
         updateResult(['percent1', 'number1'], 'result1', (percent, number) => {
             const result = (percent / 100) * number;
@@ -1806,12 +1881,18 @@
             return `Final: ${formatNumber(finalPrice)} • Save: ${formatNumber(discountAmount)} (${formatNumber(discount)}% off)`;
         }, [{min: 0.01}, {min: 0, max: 100}]);
 
-        // Calculator 6: Tip Calculator
-        updateResult(['bill', 'tip'], 'result6', (bill, tipPercent) => {
+        // Calculator 6: Tip Calculator (mejorado con split)
+        updateResult(['bill', 'tip', 'splitPeople'], 'result6', (bill, tipPercent, people) => {
             const tipAmount = (tipPercent / 100) * bill;
             const total = bill + tipAmount;
+            const perPerson = total / people;
+            const tipPerPerson = tipAmount / people;
+            
+            if (people > 1) {
+                return `Total: ${formatNumber(total)} • Tip: ${formatNumber(tipAmount)} (${formatNumber(tipPercent)}%) • Per person: ${formatNumber(perPerson)} (${formatNumber(tipPerPerson)} tip)`;
+            }
             return `Tip: ${formatNumber(tipAmount)} • Total: ${formatNumber(total)} (${formatNumber(tipPercent)}%)`;
-        }, [{min: 0.01}, {min: 0, max: 100}]);
+        }, [{min: 0.01}, {min: 0, max: 100}, {min: 1, max: 100}]);
 
         // Calculator 7: Sales Tax Calculator
         updateResult(['price2', 'taxRate'], 'result7', (price, taxRate) => {
@@ -1924,7 +2005,7 @@
                              input.id === 'new2' || input.id === 'price1' || input.id === 'price2' || 
                              input.id === 'bill' || input.id === 'cost' || input.id === 'principal' || 
                              input.id === 'principal2' || input.id === 'time' || input.id === 'time2' || 
-                             input.id === 'total1') && char === '-') {
+                             input.id === 'total1' || input.id === 'splitPeople') && char === '-') {
                             e.preventDefault();
                             return;
                         }
