@@ -1,0 +1,1875 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MSWRPVHBQF"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-MSWRPVHBQF');
+    </script>
+    <title>Basic Calculators - Scientific, Fraction & Math Tools | RapidPercent</title>
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+    <meta name="description" content="Free basic calculator tools including scientific calculator, fraction calculator, square root calculator, and basic arithmetic. Fast, accurate, and mobile-friendly math calculators.">
+    <link rel="canonical" href="https://rapidpercent.com/basic-calculators.html">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="RapidPercent">
+    <meta property="og:url" content="https://rapidpercent.com/basic-calculators.html">
+    <meta property="og:title" content="Basic Calculators - Scientific & Math Tools | RapidPercent">
+    <meta property="og:description" content="Free online basic calculators: scientific calculator, fraction calculator, square root calculator, and basic arithmetic. Perfect for students and professionals.">
+    <meta property="og:image" content="https://RapidPercent.com/og-image.png">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Basic Calculators - Free Math & Scientific Tools">
+    <meta property="twitter:description" content="Scientific calculator, fraction calculator, square root calculator, and basic math tools. Free and easy to use.">
+    <meta property="twitter:image" content="https://RapidPercent.com/twitter-image.png">
+    
+    <!-- Theme -->
+    <meta name="theme-color" content="#2dd4bf">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "RapidPercent Basic Calculators",
+        "url": "https://RapidPercent.com/basic-calculators.html",
+        "description": "Free online basic calculator tools including scientific calculator, fraction calculator, square root calculator, and basic arithmetic operations.",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "Web Browser",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "creator": {
+            "@type": "Organization",
+            "name": "RapidPercent"
+        },
+        "featureList": [
+            "Scientific calculator with advanced functions",
+            "Fraction calculator and converter",
+            "Square root and power calculator",
+            "Basic arithmetic calculator"
+        ]
+    }
+    </script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: linear-gradient(135deg, #2dd4bf 0%, #14b8a6 25%, #0d9488 50%, #0f766e 75%, #134e4a 100%);
+            --secondary: linear-gradient(135deg, #6ee7b7 0%, #34d399 25%, #10b981 50%, #059669 75%, #047857 100%);
+            --glass: rgba(255, 255, 255, 0.1);
+            --glass-border: rgba(255, 255, 255, 0.2);
+            --shadow: 0 25px 50px -12px rgba(45, 212, 191, 0.25);
+            --text: #0f172a;
+            --text-light: rgba(255, 255, 255, 0.9);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--primary);
+            min-height: 100vh;
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(45, 212, 191, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(20, 184, 166, 0.4) 0%, transparent 50%),
+                radial-gradient(circle at 40% 80%, rgba(13, 148, 136, 0.3) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .header {
+			background: var(--glass);
+			backdrop-filter: blur(20px);
+			border: 1px solid var(--glass-border);
+			border-radius: 0 0 32px 32px;
+			padding: 40px 0;
+			margin-bottom: 40px;
+			box-shadow: var(--shadow);
+			position: relative;
+			overflow: visible;
+		}
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(45, 212, 191, 0.8), transparent);
+        }
+
+        .header h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 900;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.9) 30%, rgba(255, 255, 255, 0.95) 70%, rgba(255, 255, 255, 0.85) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 12px;
+            letter-spacing: -0.02em;
+            text-shadow: 0 2px 8px rgba(255, 255, 255, 0.3);
+            filter: drop-shadow(0 1px 3px rgba(255, 255, 255, 0.2));
+            backdrop-filter: blur(2px);
+        }
+
+        .header .tagline {
+            text-align: center;
+            color: var(--text-light);
+            font-size: clamp(1rem, 2.5vw, 1.25rem);
+            font-weight: 400;
+            opacity: 0.95;
+            margin-bottom: 8px;
+        }
+
+        .header .subtitle {
+            text-align: center;
+            color: var(--text-light);
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
+            font-weight: 300;
+            opacity: 0.85;
+        }
+
+        .calculator-section {
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 32px;
+            padding: 50px;
+            margin-bottom: 50px;
+            box-shadow: var(--shadow);
+            position: relative;
+        }
+
+        .calculator-section::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 32px;
+            padding: 1px;
+            background: var(--secondary);
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask-composite: subtract;
+            -webkit-mask-composite: destination-out;
+        }
+
+        .section-title {
+            text-align: center;
+            background: var(--secondary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: clamp(1.8rem, 4vw, 2.2rem);
+            font-weight: 800;
+            margin-bottom: 15px;
+        }
+
+        .section-description {
+            text-align: center;
+            color: var(--text-light);
+            font-size: clamp(1rem, 2vw, 1.1rem);
+            font-weight: 400;
+            opacity: 0.9;
+            margin-bottom: 40px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .calculator-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 8px 15px;
+            text-align: center;
+            color: var(--text-light);
+            font-size: clamp(0.85rem, 1.5vw, 0.95rem);
+            font-weight: 500;
+            opacity: 0.95;
+            margin-bottom: 30px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 8px 20px rgba(45, 212, 191, 0.1);
+        }
+
+        .calculator-list span {
+            display: inline-block;
+            padding: 6px 12px;
+            background: transparent;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .calculator-list span:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: scale(1.05);
+        }
+
+        .calculator-list span:not(:last-child)::after {
+            content: "•";
+            margin-left: 15px;
+            opacity: 0.6;
+            font-weight: 300;
+        }
+
+        @media (max-width: 768px) {
+            .calculator-list {
+                flex-direction: column;
+                gap: 6px;
+                padding: 15px;
+            }
+            
+            .calculator-list span:not(:last-child)::after {
+                display: none;
+            }
+            
+            .calculator-list span {
+                width: 100%;
+                text-align: center;
+            }
+        }
+
+        .calc-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+
+        .calc-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 24px;
+            padding: 40px;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(45, 212, 191, 0.1);
+            transition: all 0.4s ease;
+            animation: fadeInUp 0.8s ease-out;
+            position: relative;
+        }
+
+        .calc-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 32px 40px -8px rgba(45, 212, 191, 0.2);
+        }
+
+        .calc-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--secondary);
+            border-radius: 24px 24px 0 0;
+        }
+
+        .calc-card h3 {
+            color: var(--text);
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+            text-align: center;
+            background: var(--secondary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 10px;
+            color: #475569;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .input-group input, .input-group select {
+            width: 100%;
+            padding: 16px 20px;
+            border: 2px solid rgba(45, 212, 191, 0.2);
+            border-radius: 16px;
+            font-size: 16px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(5px);
+            outline: none;
+        }
+
+        .input-group input:focus, .input-group select:focus {
+            border-color: #2dd4bf;
+            box-shadow: 0 0 0 4px rgba(45, 212, 191, 0.1);
+            transform: translateY(-2px);
+            background: rgba(255, 255, 255, 0.95);
+        }
+
+        .input-group input.error {
+            border-color: #dc2626;
+            background: rgba(220, 38, 38, 0.1);
+        }
+
+        .error-message {
+            color: #dc2626;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-top: 5px;
+            display: none;
+        }
+
+        .result {
+            background: var(--secondary);
+            color: white;
+            padding: 24px;
+            border-radius: 16px;
+            text-align: center;
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-top: 25px;
+            min-height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 20px rgba(45, 212, 191, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .result::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            animation: resultShimmer 4s infinite;
+        }
+
+        .clear-btn {
+            position: absolute;
+            top: 17px;
+            left: 12px;
+            background: #dc2626;
+            color: white;
+            border: none;
+            padding: 4px 9px;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 900;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 5;
+            box-shadow: 0 2px 4px rgba(220, 38, 38, 0.3);
+            line-height: 1;
+        }
+
+        .clear-btn:hover {
+            background: #b91c1c;
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(220, 38, 38, 0.4);
+        }
+
+        .clear-btn:active {
+            transform: scale(0.95);
+        }
+
+        .info-icon {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 1.4rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            opacity: 0.7;
+            z-index: 10;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+        }
+
+        .info-icon:hover {
+            transform: scale(1.15) rotate(15deg);
+            opacity: 1;
+            filter: drop-shadow(0 4px 8px rgba(45, 212, 191, 0.4));
+        }
+
+        .info-modal {
+            display: none;
+            position: fixed;
+            z-index: 10000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.65);
+            backdrop-filter: blur(5px);
+            animation: fadeIn 0.3s ease;
+        }
+
+        .info-modal.show {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .info-modal-content {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 50%, #fcd34d 100%);
+            padding: 35px 40px;
+            border: 3px solid #f59e0b;
+            border-radius: 24px;
+            width: 90%;
+            max-width: 600px;
+            max-height: 85vh;
+            overflow-y: auto;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+            animation: slideDown 0.4s ease;
+            position: relative;
+        }
+
+        .info-modal-content h3 {
+            background: linear-gradient(135deg, #2dd4bf 0%, #14b8a6 50%, #0d9488 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 1.9rem;
+            font-weight: 800;
+            margin-bottom: 25px;
+            text-align: center;
+            line-height: 1.3;
+        }
+
+        .info-modal-content .modal-section {
+            margin-bottom: 20px;
+        }
+
+        .info-modal-content .modal-section h4 {
+            color: #92400e;
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .info-modal-content .modal-section p {
+            color: #78350f;
+            font-size: 1.05rem;
+            line-height: 1.7;
+            margin-bottom: 12px;
+        }
+
+        .info-modal-content .example-box {
+            background: rgba(255, 255, 255, 0.6);
+            border-left: 4px solid #f59e0b;
+            padding: 15px;
+            border-radius: 12px;
+            margin-top: 12px;
+            font-size: 0.98rem;
+            color: #78350f;
+            font-weight: 500;
+        }
+
+        .modal-close-btn {
+            background: linear-gradient(135deg, #2dd4bf 0%, #14b8a6 50%, #0d9488 100%);
+            color: white;
+            border: none;
+            padding: 14px 40px;
+            border-radius: 16px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 20px rgba(45, 212, 191, 0.4);
+            display: block;
+            margin: 25px auto 0;
+            min-width: 150px;
+        }
+
+        .modal-close-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 25px rgba(45, 212, 191, 0.5);
+        }
+
+        @keyframes resultShimmer {
+            0%, 90%, 100% { left: -100%; }
+            50% { left: 100%; }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px) scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .calc-card:nth-child(1) { animation-delay: 0.1s; }
+        .calc-card:nth-child(2) { animation-delay: 0.2s; }
+        .calc-card:nth-child(3) { animation-delay: 0.3s; }
+        .calc-card:nth-child(4) { animation-delay: 0.4s; }
+
+        .info-section {
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 32px;
+            padding: 50px;
+            margin-bottom: 50px;
+            box-shadow: var(--shadow);
+        }
+
+        .info-section h2 {
+            text-align: center;
+            background: var(--secondary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: clamp(2rem, 4vw, 2.5rem);
+            font-weight: 800;
+            margin-bottom: 40px;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .info-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            border-left: 4px solid #2dd4bf;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .info-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 30px rgba(45, 212, 191, 0.15);
+        }
+
+        .info-card h4 {
+            color: var(--text);
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .info-card p {
+            color: #475569;
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        .highlight-box {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(15px);
+            padding: 40px;
+            border-radius: 24px;
+            margin-top: 40px;
+            border: 1px solid rgba(45, 212, 191, 0.3);
+            box-shadow: var(--shadow);
+        }
+
+        .highlight-box h3 {
+            background: var(--secondary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .highlight-box p {
+            color: #475569;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .footer {
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 32px 32px 0 0;
+            padding: 40px 0;
+            text-align: center;
+            color: var(--text-light);
+            margin-top: 60px;
+        }
+
+        /* Calculator display styles */
+        .calc-display {
+			background: #ffffff;
+			color: #0f172a;
+			padding: 16px 20px;
+			border-radius: 12px;
+			text-align: right;
+			font-size: 1.7rem;
+			font-weight: 800;
+			margin-bottom: 16px;
+			min-height: 60px;
+			display: flex;
+			align-items: center;
+			justify-content: flex-end;
+			font-family: 'Courier New', monospace;
+			border: 3px solid #2dd4bf;
+			box-shadow: 0 0 0 1px rgba(45, 212, 191, 0.1), 0 4px 12px rgba(45, 212, 191, 0.15);
+			word-break: break-all;
+			letter-spacing: 0.5px;
+	}
+
+        .calc-buttons {
+			display: grid;
+			grid-template-columns: repeat(4, 1fr);
+			gap: 6px;
+		}
+
+        .calc-btn {
+			padding: 8px 16px;
+			border: none;
+			border-radius: 10px;
+			font-size: 0.95rem;
+			font-weight: 600;
+			cursor: pointer;
+			transition: all 0.2s ease;
+			background: rgba(45, 212, 191, 0.1);
+			color: #0f172a;
+			border: 2px solid rgba(45, 212, 191, 0.2);
+		}
+
+        .calc-btn:hover {
+            background: rgba(45, 212, 191, 0.2);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(45, 212, 191, 0.2);
+        }
+
+        .calc-btn:active {
+            transform: translateY(0);
+        }
+
+        .calc-btn.operator {
+            background: rgba(16, 185, 129, 0.15);
+            border-color: rgba(16, 185, 129, 0.3);
+        }
+
+        .calc-btn.operator:hover {
+            background: rgba(16, 185, 129, 0.25);
+        }
+
+        .calc-btn.equals {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            border: none;
+        }
+
+        .calc-btn.equals:hover {
+            background: linear-gradient(135deg, #059669 0%, #047857 100%);
+        }
+
+        .calc-btn.clear {
+            background: rgba(220, 38, 38, 0.15);
+            border-color: rgba(220, 38, 38, 0.3);
+            color: #dc2626;
+        }
+
+        .calc-btn.clear:hover {
+            background: rgba(220, 38, 38, 0.25);
+        }
+		
+		/* CSS para banners AADS responsive */
+.aads-banner-container {
+    margin: 40px auto;
+    max-width: 970px;
+    text-align: center;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.aads-banner-container #frame {
+    max-width: 100%;
+}
+
+.aads-banner-container iframe {
+    max-width: 100%;
+    height: auto;
+}
+
+@media (max-width: 768px) {
+    .aads-banner-container {
+        padding: 15px;
+        margin: 30px auto;
+    }
+    
+    .aads-banner-container #frame {
+        width: 100% !important;
+        max-width: 728px;
+    }
+    
+    .aads-banner-container iframe {
+        width: 100% !important;
+        max-width: 728px;
+    }
+}
+
+@media (max-width: 480px) {
+    .aads-banner-container #frame {
+        width: 100% !important;
+        max-width: 320px;
+    }
+    
+    .aads-banner-container iframe {
+        width: 100% !important;
+        max-width: 320px;
+        height: auto !important;
+    }
+}
+		
+        @media (max-width: 1024px) {
+            .calc-grid { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+        }
+
+        @media (max-width: 768px) {
+            .container { padding: 0 15px; }
+            .calculator-section, .info-section { padding: 30px 25px; }
+            .calc-card { padding: 30px; }
+            .info-modal-content {
+                padding: 25px 20px;
+                width: 95%;
+                max-height: 90vh;
+            }
+            .info-modal-content h3 {
+                font-size: 1.5rem;
+            }
+            .info-modal-content .modal-section h4 {
+                font-size: 1.05rem;
+            }
+            .info-modal-content .modal-section p {
+                font-size: 0.98rem;
+            }
+            .info-icon {
+                font-size: 1.2rem;
+                top: 12px;
+                right: 12px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .calc-card { padding: 25px; }
+            .info-card { padding: 25px; }
+            .highlight-box { padding: 30px; }
+            .calc-buttons {
+                gap: 8px;
+            }
+            .calc-btn {
+                padding: 15px;
+                font-size: 1.1rem;
+            }
+        }
+
+        @media (max-width: 350px) {
+            .container { padding: 0 10px; }
+            .calc-grid { grid-template-columns: 1fr; }
+            .calc-card { 
+                padding: 20px; 
+                min-width: 0;
+            }
+            .info-card { padding: 20px; }
+            .header { padding: 30px 0; }
+            .calculator-section, .info-section { 
+                padding: 25px 15px; 
+                border-radius: 20px;
+            }
+            .highlight-box { 
+                padding: 25px 15px; 
+                border-radius: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+		<div class="container">
+			<a href="https://rapidpercent.com" style="position: absolute; left: 35px; top: 54%; transform: translateY(-50%); z-index: 9999; text-decoration: none; display: block; transition: all 0.3s ease; filter: drop-shadow(0 4px 15px rgba(251, 191, 36, 0.5)); cursor: pointer; pointer-events: all;" onmouseover="this.style.transform='translateY(-50%) translateX(-6px) scale(1.06)'; this.style.filter='drop-shadow(0 6px 20px rgba(251, 191, 36, 0.7))';" onmouseout="this.style.transform='translateY(-50%)'; this.style.filter='drop-shadow(0 4px 15px rgba(251, 191, 36, 0.5))';" title="Back to RapidPercent home">
+    <svg width="95" height="75" viewBox="0 0 85 75" xmlns="http://www.w3.org/2000/svg" style="display: block; pointer-events: auto;">
+        <path d="M18 37.5 L48 8 L48 26 L85 26 L85 49 L48 49 L48 67 Z" fill="#fbbf24" style="pointer-events: all;"/>
+    </svg>
+</a>
+        <h1>Basic Calculators</h1>
+            <p class="tagline">Scientific • Fraction • Square Root • Basic Math • Fast • Accurate • Free</p>
+            <p class="subtitle">Complete suite of essential math calculation tools for students and professionals</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Banner 1 - AADS Horizontal -->
+        <div class="aads-banner-container">
+            <div id="frame" style="width: 728px;margin: auto;z-index: 99998;height: auto">
+                <iframe data-aa='2415317' src='//ad.a-ads.com/2415317/?size=728x90'
+                    style='border:0; padding:0; width:728px; height:90px; overflow:hidden;display: block;margin: auto'></iframe>
+            </div>
+        </div>
+        
+        <section class="calculator-section">
+            <h2 class="section-title">Free Online Basic Calculators</h2>
+            
+            <div class="calculator-list">
+                <span>Scientific Calculator</span>
+                <span>Basic Calculator</span>
+                <span>Fraction Calculator</span>
+                <span>Square Root & Powers</span>
+            </div>
+            
+            <div class="calc-grid">
+                <!-- Calculator 1: Basic Calculator -->
+                <div class="calc-card" id="basic-calc">
+                    <h3>Basic Calculator</h3>
+                    <span class="info-icon" onclick="openModal('modal1')" title="How to use this calculator?">💡</span>
+                    
+                    <div class="calc-display" id="display1">0</div>
+                    
+                    <div class="calc-buttons">
+                        <button class="calc-btn clear" onclick="clearDisplay('display1')">C</button>
+                        <button class="calc-btn clear" onclick="deleteLast('display1')">⌫</button>
+                        <button class="calc-btn operator" onclick="appendToDisplay('display1', '/')">÷</button>
+                        <button class="calc-btn operator" onclick="appendToDisplay('display1', '*')">×</button>
+                        
+                        <button class="calc-btn" onclick="appendToDisplay('display1', '7')">7</button>
+                        <button class="calc-btn" onclick="appendToDisplay('display1', '8')">8</button>
+                        <button class="calc-btn" onclick="appendToDisplay('display1', '9')">9</button>
+                        <button class="calc-btn operator" onclick="appendToDisplay('display1', '-')">−</button>
+                        
+                        <button class="calc-btn" onclick="appendToDisplay('display1', '4')">4</button>
+                        <button class="calc-btn" onclick="appendToDisplay('display1', '5')">5</button>
+                        <button class="calc-btn" onclick="appendToDisplay('display1', '6')">6</button>
+                        <button class="calc-btn operator" onclick="appendToDisplay('display1', '+')">+</button>
+                        
+                        <button class="calc-btn" onclick="appendToDisplay('display1', '1')">1</button>
+                        <button class="calc-btn" onclick="appendToDisplay('display1', '2')">2</button>
+                        <button class="calc-btn" onclick="appendToDisplay('display1', '3')">3</button>
+                        <button class="calc-btn equals" onclick="calculateBasic('display1')" style="grid-row: span 2;">=</button>
+                        
+                        <button class="calc-btn" onclick="appendToDisplay('display1', '0')" style="grid-column: span 2;">0</button>
+                        <button class="calc-btn" onclick="appendToDisplay('display1', '.')">.</button>
+                    </div>
+                </div>
+
+                <!-- Calculator 2: Scientific Calculator -->
+                <div class="calc-card" id="scientific-calc">
+                    <h3>Scientific Calculator</h3>
+                    <span class="info-icon" onclick="openModal('modal2')" title="How to use this calculator?">💡</span>
+                    
+                    <div class="calc-display" id="display2">0</div>
+                    
+                    <div class="calc-buttons">
+						<button class="calc-btn clear" onclick="clearDisplay('display2')">C</button>
+						<button class="calc-btn clear" onclick="deleteLast('display2')">⌫</button>
+						<button class="calc-btn operator" onclick="toggleAngleMode()" id="angleMode">RAD</button>
+						<button class="calc-btn operator" onclick="scientificFunction('display2', 'factorial')">x!</button>
+
+						<button class="calc-btn operator" onclick="scientificFunction('display2', 'sin')">sin</button>
+						<button class="calc-btn operator" onclick="scientificFunction('display2', 'cos')">cos</button>
+						<button class="calc-btn operator" onclick="scientificFunction('display2', 'tan')">tan</button>
+						<button class="calc-btn operator" onclick="scientificFunction('display2', 'sqrt')">√</button>
+
+						<button class="calc-btn operator" onclick="scientificFunction('display2', 'asin')">sin⁻¹</button>
+						<button class="calc-btn operator" onclick="scientificFunction('display2', 'acos')">cos⁻¹</button>
+						<button class="calc-btn operator" onclick="scientificFunction('display2', 'atan')">tan⁻¹</button>
+						<button class="calc-btn operator" onclick="scientificFunction('display2', 'pow2')">x²</button>
+
+						<button class="calc-btn operator" onclick="scientificFunction('display2', 'log')">log</button>
+						<button class="calc-btn operator" onclick="scientificFunction('display2', 'ln')">ln</button>
+						<button class="calc-btn operator" onclick="appendToDisplay('display2', 'Math.E')">e</button>
+						<button class="calc-btn operator" onclick="appendToDisplay('display2', 'Math.PI')">π</button>
+
+						<button class="calc-btn operator" onclick="appendToDisplay('display2', '(')">(</button>
+						<button class="calc-btn operator" onclick="appendToDisplay('display2', ')')">)</button>
+						<button class="calc-btn operator" onclick="appendToDisplay('display2', '^')">xʸ</button>
+						<button class="calc-btn operator" onclick="appendToDisplay('display2', '/')">÷</button>
+
+						<button class="calc-btn" onclick="appendToDisplay('display2', '7')">7</button>
+						<button class="calc-btn" onclick="appendToDisplay('display2', '8')">8</button>
+						<button class="calc-btn" onclick="appendToDisplay('display2', '9')">9</button>
+						<button class="calc-btn operator" onclick="appendToDisplay('display2', '*')">×</button>
+
+						<button class="calc-btn" onclick="appendToDisplay('display2', '4')">4</button>
+						<button class="calc-btn" onclick="appendToDisplay('display2', '5')">5</button>
+						<button class="calc-btn" onclick="appendToDisplay('display2', '6')">6</button>
+						<button class="calc-btn operator" onclick="appendToDisplay('display2', '-')">−</button>
+
+						<button class="calc-btn" onclick="appendToDisplay('display2', '1')">1</button>
+						<button class="calc-btn" onclick="appendToDisplay('display2', '2')">2</button>
+						<button class="calc-btn" onclick="appendToDisplay('display2', '3')">3</button>
+						<button class="calc-btn operator" onclick="appendToDisplay('display2', '+')">+</button>
+
+						<button class="calc-btn" onclick="appendToDisplay('display2', '0')" style="grid-column: span 2;">0</button>
+						<button class="calc-btn" onclick="appendToDisplay('display2', '.')">.</button>
+						<button class="calc-btn equals" onclick="calculateScientific('display2')">=</button>
+					</div>
+                </div>
+
+                <!-- Calculator 3: Fraction Calculator -->
+                <div class="calc-card" id="fraction-calc">
+                    <button class="clear-btn" onclick="clearCalculator('fraction-calc')" title="Clear all fields">✕</button>
+                    <h3>Fraction Calculator</h3>
+                    <span class="info-icon" onclick="openModal('modal3')" title="How to use this calculator?">💡</span>
+                    
+                    <div class="input-group">
+                        <label for="frac1-num">First Fraction - Numerator:</label>
+                        <input type="number" id="frac1-num" placeholder="e.g., 1" step="1" aria-label="First fraction numerator">
+                        <div class="error-message" id="error-frac1-num">Please enter a valid number</div>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="frac1-den">First Fraction - Denominator:</label>
+                        <input type="number" id="frac1-den" placeholder="e.g., 2" step="1" min="1" aria-label="First fraction denominator">
+                        <div class="error-message" id="error-frac1-den">Denominator must be greater than 0</div>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="frac-operation">Operation:</label>
+                        <select id="frac-operation" aria-label="Select operation">
+                            <option value="+">Addition (+)</option>
+                            <option value="-">Subtraction (−)</option>
+                            <option value="*">Multiplication (×)</option>
+                            <option value="/">Division (÷)</option>
+                        </select>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="frac2-num">Second Fraction - Numerator:</label>
+                        <input type="number" id="frac2-num" placeholder="e.g., 1" step="1" aria-label="Second fraction numerator">
+                        <div class="error-message" id="error-frac2-num">Please enter a valid number</div>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="frac2-den">Second Fraction - Denominator:</label>
+                        <input type="number" id="frac2-den" placeholder="e.g., 4" step="1" min="1" aria-label="Second fraction denominator">
+                        <div class="error-message" id="error-frac2-den">Denominator must be greater than 0</div>
+                    </div>
+                    
+                    <div class="result" id="result-fraction">Enter fractions above</div>
+                </div>
+
+                <!-- Calculator 4: Square Root & Powers Calculator -->
+                <div class="calc-card" id="power-calc">
+                    <button class="clear-btn" onclick="clearCalculator('power-calc')" title="Clear all fields">✕</button>
+                    <h3>Square Root & Powers</h3>
+                    <span class="info-icon" onclick="openModal('modal4')" title="How to use this calculator?">💡</span>
+                    
+                    <div class="input-group">
+                        <label for="power-operation">Operation:</label>
+                        <select id="power-operation" aria-label="Select operation" onchange="togglePowerInputs()">
+                            <option value="sqrt">Square Root (√)</option>
+                            <option value="cbrt">Cube Root (∛)</option>
+                            <option value="power">Power (xⁿ)</option>
+                            <option value="square">Square (x²)</option>
+                            <option value="cube">Cube (x³)</option>
+                        </select>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="power-base">Number (Base):</label>
+                        <input type="number" id="power-base" placeholder="e.g., 16" step="0.01" aria-label="Enter base number">
+                        <div class="error-message" id="error-power-base">Please enter a valid number</div>
+                    </div>
+                    
+                    <div class="input-group" id="exponent-group" style="display: none;">
+                        <label for="power-exponent">Exponent (Power):</label>
+                        <input type="number" id="power-exponent" placeholder="e.g., 3" step="0.01" aria-label="Enter exponent">
+                        <div class="error-message" id="error-power-exponent">Please enter a valid number</div>
+                    </div>
+                    
+                    <div class="result" id="result-power">Enter values above</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Banner - AADS Medium Rectangle -->
+		<div style="background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); border-radius: 24px; padding: 25px; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); border: 1px solid rgba(45, 212, 191, 0.1); margin: 40px auto; max-width: 370px; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center;">
+			<div style="position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(135deg, #6ee7b7 0%, #34d399 25%, #10b981 50%, #059669 75%, #047857 100%); border-radius: 24px 24px 0 0;"></div>
+			<iframe data-aa='2415316' src='//ad.a-ads.com/2415316/?size=300x250' style='border:0; padding:0; width:300px; height:250px; overflow:hidden; display:block; border-radius:12px;' title="Advertisement"></iframe>
+		</div>
+
+        <!-- Information Section -->
+        <section class="info-section">
+            <h2>Basic Calculator Guide & Formulas</h2>
+            
+            <div class="info-grid">
+                <div class="info-card">
+                    <h4>🧮 Basic Calculator</h4>
+                    <p>Perform fundamental arithmetic operations: addition (+), subtraction (−), multiplication (×), and division (÷). Perfect for everyday calculations, budgeting, and quick math. Features a user-friendly button interface similar to physical calculators.</p>
+                </div>
+                
+                <div class="info-card">
+                    <h4>🔬 Scientific Calculator</h4>
+                    <p>Advanced mathematical functions including trigonometry (sin, cos, tan), parentheses for complex expressions, and the constant π (pi). Ideal for students, engineers, and anyone needing advanced mathematical calculations beyond basic arithmetic.</p>
+                </div>
+                
+                <div class="info-card">
+                    <h4>🍰 Fraction Calculator</h4>
+                    <p>Add, subtract, multiply, and divide fractions easily. Automatically simplifies results to lowest terms. Essential for cooking measurements, construction projects, and mathematical learning. Handles proper fractions, improper fractions, and mixed numbers.</p>
+                </div>
+                
+                <div class="info-card">
+                    <h4>⚡ Square Root & Powers</h4>
+                    <p>Calculate square roots (√), cube roots (∛), and any power (xⁿ). Useful for geometry, physics calculations, engineering formulas, and financial compound interest calculations. Supports decimal exponents for advanced applications.</p>
+                </div>
+
+                <div class="info-card">
+                    <h4>📐 Fraction Operations</h4>
+                    <p>Addition: Find common denominator and add numerators. Subtraction: Similar process with subtraction. Multiplication: Multiply numerators together and denominators together. Division: Multiply by the reciprocal of the second fraction.</p>
+                </div>
+
+                <div class="info-card">
+                    <h4>🎯 Power Rules</h4>
+                    <p>x² means x multiplied by itself. x³ means x multiplied by itself three times. xⁿ means x multiplied by itself n times. Negative exponents create fractions: x⁻² = 1/x². Fractional exponents represent roots: x^(1/2) = √x.</p>
+                </div>
+            </div>
+
+            <div class="highlight-box">
+                <h3>🚀 Why Use Our Basic Calculator Suite?</h3>
+                <p>Our comprehensive calculator suite provides instant, accurate calculations for all your basic and advanced math needs. Whether you're a student tackling homework, a professional handling complex calculations, or someone who needs quick arithmetic, our tools deliver precise results every time.</p>
+                <br>
+                <p>With intuitive interfaces designed for both desktop and mobile devices, calculations are effortless and accessible anywhere. No downloads, no installations, no complications - just open your browser and start calculating with confidence!</p>
+            </div>
+        </section>
+
+        <!-- Donation Section -->
+        <section class="info-section">
+            <div style="background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); border-radius: 24px; padding: 40px; text-align: center; max-width: 500px; margin: 0 auto; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); border: 1px solid rgba(45, 212, 191, 0.1);">
+                <h3 style="background: linear-gradient(135deg, #6ee7b7 0%, #34d399 25%, #10b981 50%, #059669 75%, #047857 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-size: 1.4rem; font-weight: 700; margin-bottom: 20px;">Buy me a coffee?</h3>
+                <p style="color: #475569; font-size: 1.1rem; line-height: 1.6; margin-bottom: 25px;">If RapidPercent helped you, consider supporting with a small Bitcoin donation. Your support keeps this tool free for everyone!</p>
+                <button onclick="document.getElementById('btcAddress').style.display = document.getElementById('btcAddress').style.display === 'none' ? 'block' : 'none'" style="background: linear-gradient(135deg, #6ee7b7 0%, #34d399 25%, #10b981 50%, #059669 75%, #047857 100%); color: white; border: none; padding: 15px 30px; border-radius: 20px; font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 8px 20px rgba(45, 212, 191, 0.3);" aria-label="Show Bitcoin donation address">Donate Bitcoin</button>
+                <div id="btcAddress" style="display: none; margin-top: 20px; background: #f8fafc; border: 2px solid #2dd4bf; border-radius: 12px; padding: 20px;">
+                    <p style="margin-bottom: 10px; font-weight: 600; color: #0f172a;">Bitcoin Address:</p>
+                    <code style="font-family: monospace; font-size: 0.9rem; color: #0f172a; word-break: break-all; display: block; margin-bottom: 15px;">bc1qxfc70kg5gtavn3mw5nypps970hqkzw6c885ya4</code>
+                    <button onclick="copyBitcoinAddress(this)" style="background: #2dd4bf; color: white; border: none; padding: 8px 15px; border-radius: 8px; cursor: pointer;" aria-label="Copy Bitcoin address to clipboard">Copy Address</button>
+                    <p style="color: #059669; font-weight: 600; margin-top: 15px;">Thank you for your support!</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Modals -->
+    <!-- Modal 1: Basic Calculator -->
+    <div id="modal1" class="info-modal">
+        <div class="info-modal-content">
+            <h3>💡 Basic Calculator</h3>
+            
+            <div class="modal-section">
+                <h4>🎯 What does it do?</h4>
+                <p>Performs fundamental arithmetic operations: addition, subtraction, multiplication, and division. It's your everyday calculator for quick math.</p>
+            </div>
+
+            <div class="modal-section">
+                <h4>🔧 How to use it?</h4>
+                <p>Click the number buttons to input values, then click an operation button (+, −, ×, ÷), enter the second number, and press = to calculate. Use C to clear everything or ⌫ to delete the last digit.</p>
+                <div class="example-box">
+                    <strong>Example:</strong> Calculate 25 × 4<br>
+                    Click: 2 → 5 → × → 4 → =<br>
+                    Result: 100
+                </div>
+            </div>
+
+            <div class="modal-section">
+                <h4>💼 When to use it?</h4>
+                <p><strong>• Shopping:</strong> Calculate total costs<br>
+                <strong>• Bills:</strong> Split expenses<br>
+                <strong>• Budgeting:</strong> Track daily expenses<br>
+                <strong>• School:</strong> Basic homework problems<br>
+                <strong>• Work:</strong> Quick calculations on the go</p>
+            </div>
+
+            <button class="modal-close-btn" onclick="closeModal('modal1')">Got it ✓</button>
+        </div>
+    </div>
+
+    <!-- Modal 2: Scientific Calculator -->
+    <div id="modal2" class="info-modal">
+        <div class="info-modal-content">
+            <h3>💡 Scientific Calculator</h3>
+            
+            <div class="modal-section">
+                <h4>🎯 What does it do?</h4>
+                <p>Performs advanced mathematical operations including trigonometric functions (sin, cos, tan), parentheses for complex expressions, and includes the mathematical constant π (pi).</p>
+            </div>
+
+            <div class="modal-section">
+                <h4>🔧 How to use it?</h4>
+                <p>Use the number pad for digits, function buttons for trigonometry, parentheses for grouping operations, and π for the pi constant. Press = to calculate the result.</p>
+                <div class="example-box">
+                    <strong>Example:</strong> Calculate sin(30°)<br>
+                    Note: Input in radians. 30° = 0.5236 radians<br>
+                    Click: sin → 0.5236 → =<br>
+                    Result: ≈ 0.5
+                </div>
+            </div>
+
+            <div class="modal-section">
+                <h4>💼 When to use it?</h4>
+                <p><strong>• Physics:</strong> Wave calculations, vectors<br>
+                <strong>• Engineering:</strong> Complex formulas<br>
+                <strong>• Math Class:</strong> Trigonometry homework<br>
+                <strong>• Navigation:</strong> Angle calculations<br>
+                <strong>• Science:</strong> Laboratory computations</p>
+            </div>
+
+            <button class="modal-close-btn" onclick="closeModal('modal2')">Got it ✓</button>
+        </div>
+    </div>
+
+    <!-- Modal 3: Fraction Calculator -->
+    <div id="modal3" class="info-modal">
+        <div class="info-modal-content">
+            <h3>💡 Fraction Calculator</h3>
+            
+            <div class="modal-section">
+                <h4>🎯 What does it do?</h4>
+                <p>Performs operations with fractions: addition, subtraction, multiplication, and division. Automatically simplifies results to the lowest terms and shows both fraction and decimal forms.</p>
+            </div>
+
+            <div class="modal-section">
+                <h4>🔧 How to use it?</h4>
+                <p>Enter the numerator and denominator for the first fraction, select the operation, enter the second fraction, and see the result automatically calculated and simplified.</p>
+                <div class="example-box">
+                    <strong>Example:</strong> Add 1/2 + 1/4<br>
+                    First: 1/2, Operation: +, Second: 1/4<br>
+                    Result: 3/4 (0.75)
+                </div>
+            </div>
+
+            <div class="modal-section">
+                <h4>💼 When to use it?</h4>
+                <p><strong>• Cooking:</strong> Recipe measurements<br>
+                <strong>• Construction:</strong> Precise measurements<br>
+                <strong>• Math Homework:</strong> Fraction problems<br>
+                <strong>• Sewing:</strong> Fabric calculations<br>
+                <strong>• Carpentry:</strong> Wood cutting measurements</p>
+            </div>
+
+            <button class="modal-close-btn" onclick="closeModal('modal3')">Got it ✓</button>
+        </div>
+    </div>
+
+    <!-- Modal 4: Square Root & Powers -->
+    <div id="modal4" class="info-modal">
+        <div class="info-modal-content">
+            <h3>💡 Square Root & Powers Calculator</h3>
+            
+            <div class="modal-section">
+                <h4>🎯 What does it do?</h4>
+                <p>Calculates square roots (√), cube roots (∛), powers (xⁿ), squares (x²), and cubes (x³). Essential for geometry, physics, and advanced mathematics.</p>
+            </div>
+
+            <div class="modal-section">
+                <h4>🔧 How to use it?</h4>
+                <p>Select the operation type, enter your number (and exponent if needed for powers), and see the result instantly calculated.</p>
+                <div class="example-box">
+                    <strong>Example 1:</strong> Square root of 16<br>
+                    Operation: √, Number: 16<br>
+                    Result: 4<br><br>
+                    <strong>Example 2:</strong> 2 to the power of 5<br>
+                    Operation: xⁿ, Base: 2, Exponent: 5<br>
+                    Result: 32
+                </div>
+            </div>
+
+            <div class="modal-section">
+                <h4>💼 When to use it?</h4>
+                <p><strong>• Geometry:</strong> Calculate areas, volumes<br>
+                <strong>• Physics:</strong> Velocity, acceleration formulas<br>
+                <strong>• Finance:</strong> Compound interest<br>
+                <strong>• Engineering:</strong> Power calculations<br>
+                <strong>• Statistics:</strong> Standard deviation</p>
+            </div>
+
+            <button class="modal-close-btn" onclick="closeModal('modal4')">Got it ✓</button>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 RapidPercent.com - Free Online Percentage Calculator Suite</p>
+            <p style="margin-top: 12px; opacity: 0.9;">11 Professional Calculators • Fast • Accurate • Free • Mobile-Friendly</p>
+            <p style="margin-top: 8px; opacity: 0.8; font-size: 0.9rem;">Trusted by students, professionals, and businesses worldwide</p>
+        </div>
+    </footer>
+
+	<script>
+        // Basic Calculator Functions
+        function appendToDisplay(displayId, value) {
+            const display = document.getElementById(displayId);
+            if (display.textContent === '0' || display.textContent === 'Error') {
+                display.textContent = value;
+            } else {
+                display.textContent += value;
+            }
+        }
+
+        function clearDisplay(displayId) {
+            document.getElementById(displayId).textContent = '0';
+        }
+
+        function deleteLast(displayId) {
+            const display = document.getElementById(displayId);
+            if (display.textContent.length > 1) {
+                display.textContent = display.textContent.slice(0, -1);
+            } else {
+                display.textContent = '0';
+            }
+        }
+
+        function calculateBasic(displayId) {
+			const display = document.getElementById(displayId);
+			try {
+				// Limpiar signos finales sin valor
+				let expression = display.textContent.replace(/×/g, '*').replace(/÷/g, '/').replace(/−/g, '-');
+				// Remover operadores al final: +, -, *, /
+				expression = expression.replace(/[\+\-\*\/]+$/, '');
+        
+				const result = eval(expression);
+				display.textContent = Number.isFinite(result) ? (Math.abs(result) < 0.0001 || Math.abs(result) > 999999999 ? result.toExponential(6) : parseFloat(result.toFixed(10))) : 'Error';
+			} catch (error) {
+				display.textContent = 'Error';
+			}
+		}
+
+        // Variable global para modo de ángulos
+let angleMode = 'RAD'; // 'RAD' o 'DEG'
+
+function toggleAngleMode() {
+    const btn = document.getElementById('angleMode');
+    if (angleMode === 'RAD') {
+        angleMode = 'DEG';
+        btn.textContent = 'DEG';
+        btn.style.background = 'rgba(245, 158, 11, 0.15)';
+        btn.style.borderColor = 'rgba(245, 158, 11, 0.3)';
+    } else {
+        angleMode = 'RAD';
+        btn.textContent = 'RAD';
+        btn.style.background = 'rgba(16, 185, 129, 0.15)';
+        btn.style.borderColor = 'rgba(16, 185, 129, 0.3)';
+    }
+}
+
+function toRadians(degrees) {
+    return degrees * (Math.PI / 180);
+}
+
+function toDegrees(radians) {
+    return radians * (180 / Math.PI);
+}
+
+function factorial(n) {
+    n = Math.floor(n); // ✅ Redondear primero
+    if (n < 0 || n > 170) return NaN; // ✅ Límite de JS (171! = Infinity)
+    if (n === 0 || n === 1) return 1;
+    let result = 1;
+    for (let i = 2; i <= n; i++) {
+        result *= i;
+        if (!Number.isFinite(result)) return Infinity; // ✅ Protección overflow
+    }
+    return result;
+}
+
+function scientificFunction(displayId, func) {
+    const display = document.getElementById(displayId);
+    try {
+        const value = eval(display.textContent.replace(/×/g, '*').replace(/÷/g, '/').replace(/−/g, '-').replace(/\^/g, '**'));
+        let result;
+        
+        switch(func) {
+            case 'sin':
+                result = angleMode === 'DEG' ? Math.sin(toRadians(value)) : Math.sin(value);
+                break;
+            case 'cos':
+                result = angleMode === 'DEG' ? Math.cos(toRadians(value)) : Math.cos(value);
+                break;
+            case 'tan':
+                result = angleMode === 'DEG' ? Math.tan(toRadians(value)) : Math.tan(value);
+                break;
+            case 'asin':
+                result = angleMode === 'DEG' ? toDegrees(Math.asin(value)) : Math.asin(value);
+                break;
+            case 'acos':
+                result = angleMode === 'DEG' ? toDegrees(Math.acos(value)) : Math.acos(value);
+                break;
+            case 'atan':
+                result = angleMode === 'DEG' ? toDegrees(Math.atan(value)) : Math.atan(value);
+                break;
+            case 'sqrt':
+                result = Math.sqrt(value);
+                break;
+            case 'pow2':
+                result = Math.pow(value, 2);
+                break;
+            case 'log':
+                result = Math.log10(value);
+                break;
+            case 'ln':
+                result = Math.log(value);
+                break;
+            case 'factorial':
+				if (value < 0) {
+					display.textContent = 'Error: n! requires n≥0';
+					return;
+				}
+				if (value !== Math.floor(value)) {
+					display.textContent = 'Error: n! requires integer';
+					return;
+				}
+				if (value > 170) {
+					display.textContent = 'Error: n! too large (max 170)';
+					return;
+				}
+				result = factorial(value);
+				break;
+			}
+        display.textContent = parseFloat(result.toFixed(10));
+    } catch (error) {
+        display.textContent = 'Error';
+    }
+}
+
+        function calculateScientific(displayId) {
+			const display = document.getElementById(displayId);
+			try {
+				let expression = display.textContent.replace(/×/g, '*').replace(/÷/g, '/').replace(/−/g, '-').replace(/\^/g, '**');
+				// Remover operadores al final: +, -, *, /, ^
+				expression = expression.replace(/[\+\-\*\/\^]+$/, '');
+        
+				const result = eval(expression);
+				display.textContent = Number.isFinite(result) ? (Math.abs(result) < 0.0001 || Math.abs(result) > 999999999 ? result.toExponential(6) : parseFloat(result.toFixed(10))) : 'Error';
+			} catch (error) {
+				display.textContent = 'Error';
+			}
+		}
+
+        // Fraction Calculator
+        function gcd(a, b) {
+            a = Math.abs(a);
+            b = Math.abs(b);
+            while (b !== 0) {
+                let t = b;
+                b = a % b;
+                a = t;
+            }
+            return a;
+        }
+
+        function simplifyFraction(num, den) {
+            if (den === 0) return { num: 0, den: 1 };
+            const divisor = gcd(num, den);
+            return {
+                num: num / divisor,
+                den: den / divisor
+            };
+        }
+
+        function calculateFraction() {
+            const num1 = parseInt(document.getElementById('frac1-num').value) || 0;
+            const den1 = parseInt(document.getElementById('frac1-den').value) || 1;
+            const num2 = parseInt(document.getElementById('frac2-num').value) || 0;
+            const den2 = parseInt(document.getElementById('frac2-den').value) || 1;
+            const operation = document.getElementById('frac-operation').value;
+            
+            if (den1 === 0 || den2 === 0) {
+                document.getElementById('result-fraction').textContent = 'Error: Denominator cannot be zero';
+                return;
+            }
+            
+            let resultNum, resultDen;
+            
+            switch(operation) {
+                case '+':
+                    resultNum = num1 * den2 + num2 * den1;
+                    resultDen = den1 * den2;
+                    break;
+                case '-':
+                    resultNum = num1 * den2 - num2 * den1;
+                    resultDen = den1 * den2;
+                    break;
+                case '*':
+                    resultNum = num1 * num2;
+                    resultDen = den1 * den2;
+                    break;
+                case '/':
+					if (num2 === 0) {
+						document.getElementById('result-fraction').textContent = 'Error: Cannot divide by zero';
+						return;
+					}
+					resultNum = num1 * den2;
+					resultDen = den1 * num2;
+    
+					// Si denominador es negativo, mover signo al numerador
+					if (resultDen < 0) {
+						resultNum = -resultNum;
+						resultDen = -resultDen;
+					}
+					break;
+				}
+            
+            const simplified = simplifyFraction(resultNum, resultDen);
+            const decimal = (simplified.num / simplified.den).toFixed(4);
+            
+            const opSymbol = operation === '+' ? '+' : operation === '-' ? '−' : operation === '*' ? '×' : '÷';
+            document.getElementById('result-fraction').textContent = 
+                `${num1}/${den1} ${opSymbol} ${num2}/${den2} = ${simplified.num}/${simplified.den} (${decimal})`;
+        }
+
+        // Power Calculator
+        function togglePowerInputs() {
+            const operation = document.getElementById('power-operation').value;
+            const exponentGroup = document.getElementById('exponent-group');
+            exponentGroup.style.display = operation === 'power' ? 'block' : 'none';
+        }
+
+        function calculatePower() {
+            const base = parseFloat(document.getElementById('power-base').value);
+            const operation = document.getElementById('power-operation').value;
+            const exponent = parseFloat(document.getElementById('power-exponent').value);
+            
+            if (isNaN(base)) {
+                document.getElementById('result-power').textContent = 'Enter a valid number';
+                return;
+            }
+            
+            let result;
+            let operation_text;
+            
+            switch(operation) {
+                case 'sqrt':
+                    if (base < 0) {
+                        document.getElementById('result-power').textContent = 'Cannot calculate square root of negative number';
+                        return;
+                    }
+                    result = Math.sqrt(base);
+                    operation_text = `√${base}`;
+                    break;
+                case 'cbrt':
+                    result = Math.cbrt(base);
+                    operation_text = `∛${base}`;
+                    break;
+                case 'square':
+                    result = Math.pow(base, 2);
+                    operation_text = `${base}²`;
+                    break;
+                case 'cube':
+                    result = Math.pow(base, 3);
+                    operation_text = `${base}³`;
+                    break;
+                case 'power':
+                    if (isNaN(exponent)) {
+                        document.getElementById('result-power').textContent = 'Enter a valid exponent';
+                        return;
+                    }
+                    result = Math.pow(base, exponent);
+                    operation_text = `${base}^${exponent}`;
+                    break;
+            }
+            
+            const formatted = Math.abs(result) < 0.0001 || Math.abs(result) > 999999999 
+                ? result.toExponential(6) 
+                : parseFloat(result.toFixed(10));
+            
+            document.getElementById('result-power').textContent = `${operation_text} = ${formatted}`;
+        }
+
+        // Setup event listeners for fraction calculator
+        document.getElementById('frac1-num').addEventListener('input', calculateFraction);
+        document.getElementById('frac1-den').addEventListener('input', calculateFraction);
+        document.getElementById('frac2-num').addEventListener('input', calculateFraction);
+        document.getElementById('frac2-den').addEventListener('input', calculateFraction);
+        document.getElementById('frac-operation').addEventListener('change', calculateFraction);
+
+        // Setup event listeners for power calculator
+        document.getElementById('power-base').addEventListener('input', calculatePower);
+        document.getElementById('power-exponent').addEventListener('input', calculatePower);
+        document.getElementById('power-operation').addEventListener('change', function() {
+            togglePowerInputs();
+            calculatePower();
+        });
+
+        // Clear Calculator Function
+        function clearCalculator(calcId) {
+            const card = document.getElementById(calcId);
+            if (!card) return;
+            
+            // Clear all inputs
+            const inputs = card.querySelectorAll('input[type="number"]');
+            inputs.forEach(input => {
+                input.value = '';
+                input.classList.remove('error');
+            });
+            
+            // Clear error messages
+            const errors = card.querySelectorAll('.error-message');
+            errors.forEach(error => {
+                error.style.display = 'none';
+            });
+            
+            // Reset displays
+            const display = card.querySelector('.calc-display');
+            if (display) {
+                display.textContent = '0';
+            }
+            
+            // Reset result
+            const result = card.querySelector('.result');
+            if (result) {
+                result.textContent = 'Enter values above';
+            }
+            
+            // Focus first input or display
+            const firstInput = card.querySelector('input[type="number"]');
+            if (firstInput) {
+                firstInput.focus();
+            }
+        }
+
+        // Modal Functions
+        function openModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.classList.add('show');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.classList.remove('show');
+                document.body.style.overflow = '';
+            }
+        }
+
+        // Close modal when clicking outside
+        window.addEventListener('click', function(event) {
+            if (event.target.classList.contains('info-modal')) {
+                event.target.classList.remove('show');
+                document.body.style.overflow = '';
+            }
+        });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                const modals = document.querySelectorAll('.info-modal.show');
+                modals.forEach(modal => {
+                    modal.classList.remove('show');
+                    document.body.style.overflow = '';
+                });
+            }
+        });
+
+        // Bitcoin Address Copy Function
+        function copyBitcoinAddress(button) {
+            const address = 'bc1qxfc70kg5gtavn3mw5nypps970hqkzw6c885ya4';
+            
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(address).then(() => {
+                    button.textContent = 'Copied!';
+                    setTimeout(() => button.textContent = 'Copy Address', 2000);
+                }).catch(() => {
+                    copyToClipboardFallback(address, button);
+                });
+            } else {
+                copyToClipboardFallback(address, button);
+            }
+        }
+
+        function copyToClipboardFallback(text, button) {
+            const textArea = document.createElement('textarea');
+            textArea.value = text;
+            textArea.style.position = 'fixed';
+            textArea.style.left = '-999999px';
+            textArea.style.top = '-999999px';
+            document.body.appendChild(textArea);
+            textArea.focus();
+            textArea.select();
+            
+            try {
+                document.execCommand('copy');
+                button.textContent = 'Copied!';
+                setTimeout(() => button.textContent = 'Copy Address', 2000);
+            } catch (err) {
+                button.textContent = 'Copy failed';
+                setTimeout(() => button.textContent = 'Copy Address', 2000);
+            }
+            
+            document.body.removeChild(textArea);
+        }
+
+        // Animation on load
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.calc-card, .info-card');
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                
+                setTimeout(() => {
+                    card.style.transition = 'all 0.6s ease';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, index * 100);
+            });
+        });
+
+        // Prevent form submission on Enter in inputs
+        document.querySelectorAll('input').forEach(input => {
+            input.addEventListener('keydown', function(event) {
+                if (event.key === 'Enter') {
+                    event.preventDefault();
+                }
+            });
+        });
+
+        // Input validation for fraction calculator
+        ['frac1-num', 'frac1-den', 'frac2-num', 'frac2-den'].forEach(id => {
+            const input = document.getElementById(id);
+            input.addEventListener('input', function() {
+                const errorId = 'error-' + id;
+                const errorElement = document.getElementById(errorId);
+                
+                if (this.value === '') {
+                    this.classList.remove('error');
+                    errorElement.style.display = 'none';
+                    return;
+                }
+                
+                const value = parseFloat(this.value);
+                
+                if (isNaN(value)) {
+                    this.classList.add('error');
+                    errorElement.textContent = 'Please enter a valid number';
+                    errorElement.style.display = 'block';
+                } else if (id.includes('den') && value === 0) {
+                    this.classList.add('error');
+                    errorElement.textContent = 'Denominator cannot be zero';
+                    errorElement.style.display = 'block';
+                } else {
+                    this.classList.remove('error');
+                    errorElement.style.display = 'none';
+                }
+            });
+        });
+
+        // Input validation for power calculator
+        ['power-base', 'power-exponent'].forEach(id => {
+            const input = document.getElementById(id);
+            if (input) {
+                input.addEventListener('input', function() {
+                    const errorId = 'error-' + id;
+                    const errorElement = document.getElementById(errorId);
+                    
+                    if (this.value === '') {
+                        this.classList.remove('error');
+                        if (errorElement) errorElement.style.display = 'none';
+                        return;
+                    }
+                    
+                    const value = parseFloat(this.value);
+                    
+                    if (isNaN(value)) {
+                        this.classList.add('error');
+                        if (errorElement) {
+                            errorElement.textContent = 'Please enter a valid number';
+                            errorElement.style.display = 'block';
+                        }
+                    } else {
+                        this.classList.remove('error');
+                        if (errorElement) errorElement.style.display = 'none';
+                    }
+                });
+            }
+        });
+
+        // Sanitize numeric input
+        document.querySelectorAll('input[type="number"]').forEach(input => {
+            input.addEventListener('input', function(e) {
+                // Allow negative numbers for fraction numerators
+                if (this.id.includes('num')) {
+                    this.value = this.value.replace(/[^-0-9]/g, '');
+                } else {
+                    // For other inputs, no negative
+                    this.value = this.value.replace(/[^0-9.-]/g, '');
+                }
+            });
+        });
+		
+		// Sistema para habilitar teclado según calculadora activa
+let activeCalculator = null;
+
+// Detectar click en calculadoras para activar teclado
+document.getElementById('basic-calc').addEventListener('click', function() {
+    activeCalculator = 'display1';
+    highlightActiveCalc('basic-calc');
+});
+
+document.getElementById('scientific-calc').addEventListener('click', function() {
+    activeCalculator = 'display2';
+    highlightActiveCalc('scientific-calc');
+});
+
+// Destacar visualmente calculadora activa
+function highlightActiveCalc(calcId) {
+    // Remover highlight de todas
+    document.querySelectorAll('.calc-card').forEach(card => {
+        card.style.boxShadow = '0 20px 25px -5px rgba(0, 0, 0, 0.1)';
+        card.style.border = '1px solid rgba(45, 212, 191, 0.1)';
+    });
+    
+    // Agregar highlight a la activa
+    const activeCard = document.getElementById(calcId);
+    if (activeCard) {
+        activeCard.style.boxShadow = '0 0 0 3px rgba(45, 212, 191, 0.4), 0 20px 25px -5px rgba(0, 0, 0, 0.1)';
+        activeCard.style.border = '1px solid rgba(45, 212, 191, 0.5)';
+    }
+}
+
+// Soporte de teclado mejorado
+document.addEventListener('keydown', function(event) {
+    // Si estamos escribiendo en un input, no hacer nada
+    if (event.target.tagName === 'INPUT' || event.target.tagName === 'SELECT') return;
+    
+    // Si no hay calculadora activa, no hacer nada
+    if (!activeCalculator) return;
+    
+    const key = event.key;
+    
+    // Números
+    if (/^[0-9.]$/.test(key)) {
+        event.preventDefault();
+        appendToDisplay(activeCalculator, key);
+    }
+    
+    // Operaciones básicas
+    if (key === '+') {
+        event.preventDefault();
+        appendToDisplay(activeCalculator, '+');
+    }
+    if (key === '-') {
+        event.preventDefault();
+        appendToDisplay(activeCalculator, '-');
+    }
+    if (key === '*') {
+        event.preventDefault();
+        appendToDisplay(activeCalculator, '*');
+    }
+    if (key === '/') {
+        event.preventDefault();
+        appendToDisplay(activeCalculator, '/');
+    }
+    
+    // Paréntesis (para científica)
+    if (key === '(' || key === ')') {
+        event.preventDefault();
+        appendToDisplay(activeCalculator, key);
+    }
+    
+    // Potencia
+    if (key === '^') {
+        event.preventDefault();
+        appendToDisplay(activeCalculator, '^');
+    }
+    
+    // Enter o =
+    if (key === 'Enter' || key === '=') {
+        event.preventDefault();
+        if (activeCalculator === 'display1') {
+            calculateBasic(activeCalculator);
+        } else {
+            calculateScientific(activeCalculator);
+        }
+    }
+    
+    // Escape o Delete para limpiar
+    if (key === 'Escape' || key === 'Delete') {
+        event.preventDefault();
+        clearDisplay(activeCalculator);
+    }
+    
+    // Backspace
+    if (key === 'Backspace') {
+        event.preventDefault();
+        deleteLast(activeCalculator);
+    }
+});
+
+// Activar calculadora básica por defecto al cargar
+window.addEventListener('load', function() {
+    activeCalculator = 'display1';
+    highlightActiveCalc('basic-calc');
+});
+		
+    </script>
+</body>
+</html>
