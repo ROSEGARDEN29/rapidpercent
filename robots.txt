@@ -1,9 +1,4 @@
 User-agent: *
 Allow: /
-Sitemap: https://rapidpercent.com/sitemap.xml
 
-User-agent: Googlebot
-Allow: /
-
-User-agent: Bingbot
-Allow: /
+Sitemap: https://rosegarden29.github.io/rapidpercent/sitemap.xml
